@@ -12,7 +12,8 @@ import (
 type CPUUsage struct {
     CPU		float64
     lock	sync.Mutex
-    
+    // TODO add a channel or similar to link the worker 
+    // goroutine with a given object
 }
 
 func (cpu *CPUUsage) Start() error {
@@ -51,6 +52,10 @@ func (cpu *CPUUsage) Start() error {
     
     return nil
 }
+
+// TODO Add a stop function to stop the worker
+
+// TODO Add a notification system based on callback or channel
 
 func (cpu *CPUUsage) Print() error {
     // test if file exists
